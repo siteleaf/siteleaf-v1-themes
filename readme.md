@@ -170,7 +170,7 @@ Metadata
 Variable           | Description
 --------           | -----------
 `meta`             | Array of all metadata key/value pairs.
-`meta.KEY`         | Get metadata by key, ie. `Color`.
+`meta.KEY`         | Get single metadata by key, ie. `Color`.
 
 Count number of metadata fields:
 
@@ -208,7 +208,7 @@ Taxonomy, Tag Sets, & Tags
 Variable           | Description
 --------           | -----------
 `taxonomy`         | Array of all [tag sets](#tag-sets).
-`taxonomy.KEY`     | Get array of [tags](#tags) by tag set, ie. `Tags`.
+`taxonomy.KEY`     | Get single tag set by name, ie. `Tags`.
 
 ### Tag sets:
 
@@ -218,8 +218,8 @@ Variable           | Description
 `slug`             | URI slug for tag set, ie. `tags`.
 `url`              | URL for tag set page without domain, ie. `/blog/tags`
 `permalink`        | URL for tag set page with domain, ie. `http://mysite.com/blog/tags`
-`tags`             | Array of tags in tag set.
-`tags.KEY`         | Get tag by name, ie. `Design`.
+`tags`             | Array of [tags](#tags) in tag set.
+`tags.KEY`         | Get single tag by name, ie. `Design`.
 
 ### Tags:
 
