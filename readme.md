@@ -220,11 +220,11 @@ Siteleaf themes may contain one or more templates.
 
 Your base template should always be called `default.html`. 
 
-Additional templates can be applied to other pages by following the same URL structure:
+Additional templates can be applied to other pages by following the same URL structure as your website:
 
 URL               | Template
 ---               | --------
-*                 | default.html (used by default
+*                 | default.html (required, used by default)
 /                 | index.html
 /blog             | blog.html (or blog/index.html)
 /blog/new-post    | blog/default.html
