@@ -4,7 +4,7 @@ Siteleaf Theme Documentation
 Getting started
 ---------------
 
-Siteleaf uses the popular [Liquid](https://github.com/Shopify/liquid) syntax for themes.
+Siteleaf uses the popular [Liquid](https://github.com/Shopify/liquid) syntax for themes. If you can write HTML, you’ll have no problem using Liquid.
 
 There are two types of markup in Liquid:
 
