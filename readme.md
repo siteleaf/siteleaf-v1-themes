@@ -81,14 +81,17 @@ Content
 
 Variable           | Description
 --------           | -----------
-`type`             | Can be `page`, `post`, `archive`, or `taxonomy`.
+`type`             | Can be `page`, `post`, `archive`, `tagset`, or `tag`.
 `title`            | Title of content.
 `url`              | URL to object without domain (ie. `/blog/my-post`).
 `permalink`        | Full URL to object with domain (ie. `http://mysite.com/blog/my-post`).
 `body`             | Body in HTML (rendered from Markdown), available in `page` and `post` types.
 `body_raw`         | Body in raw Markdown, available in `page` and `post` types.
-`pages`            | A nested array of child-pages, available on `page` type only.
-`posts`            | Array of posts, available in `page`, `archive`, and `taxonomy` types.
+`meta`             | Array of [metadata](#metadata), available on `page` and `post` types.
+`taxonomy`         | Array of [taxonomy](#taxonomy), available on `post` type only.
+`tags`             | Array of [tags](#tags), available on `tagset` type only.
+`pages`            | Array of child-pages, available on `page` type only.
+`posts`            | Array of posts, available in `page`, `archive`, and `tag` types.
 `parent`           | Parent page object (if exists).
 `date`             | Date of publish, available in `page` and `post` types.
 `author.name`      | Full name of author, available in `page` and `post` types.
@@ -197,27 +200,50 @@ Loop through metadata:
 </dl>
 ```
 
-Taxonomy
---------
+Taxonomy, Tag Sets, & Tags
+--------------------------
+
+### Taxonomy:
 
 Variable           | Description
 --------           | -----------
-`taxonomy`         | Array of all tag sets.
-`taxonomy.KEY`     | Array of tags in set, ie. `Tags`.
+`taxonomy`         | Array of all [tag sets](#tag-sets).
+`taxonomy.KEY`     | Get array of [tags](#tags) by tag set, ie. `Tags`.
 
-Count number of tags in `Tags`:
+### Tag sets:
+
+Variable           | Description
+--------           | -----------
+`key`              | Name of tag set, ie. `Tags`.
+`slug`             | URI slug for tag set, ie. `tags`.
+`url`              | URL for tag set page without domain, ie. `/blog/tags`
+`permalink`        | URL for tag set page with domain, ie. `http://mysite.com/blog/tags`
+`tags`             | Array of tags in tag set.
+`tags.KEY`         | Get tag by name, ie. `Design`.
+
+### Tags:
+
+Variable           | Description
+--------           | -----------
+`value`            | Name of tag, ie. `Design`.
+`slug`             | URI slug for tag set, ie. `design`.
+`url`              | URL for tag page without domain, ie. `/blog/tags/desgin`
+`permalink`        | URL for tag page with domain, ie. `http://mysite.com/blog/tags/desgin`
+`posts`            | Array of [posts](#posts) with this tag.
+
+Count number of tags in the `Tags` set:
 
 ```html
 {{taxonomy.tags | size}}
 ```
 
-Get first tag in `Tags`:
+Get first tag in the `Tags` set:
 
 ```html
 {{taxonomy.tags.first}}
 ```
 
-Loop through `Tags`:
+Loop through the `Tags` set:
 
 ```html
 <ul>
@@ -227,14 +253,14 @@ Loop through `Tags`:
 </ul>
 ```
 
-Loop through all taxonomy sets:
+Loop through all tag sets:
 
 ```html
 <ul>
-{% for tag_set in taxonomy %}
-  <li>{{tag_set.key}} ({{tag_set | size}} tags)
+{% for tagset in taxonomy %}
+  <li>{{tagset.key}} ({{tagset | size}} tags)
     <ul>
-    {% for tag in tag_set %}
+    {% for tag in tagset %}
       <li><a href="{{tag.url}}">{{tag.value}}</a></li>
     {% endfor %}
     </ul>
