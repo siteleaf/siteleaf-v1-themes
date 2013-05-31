@@ -7,12 +7,12 @@ Siteleaf Theme Documentation
   - [Site](#site)
   - [Content (page, post, archive, taxonomy)](#content)
   - [Posts](#posts)
-  - [Subpages](#subpags)
+  - [Subpages](#subpages)
   - [Metadata](#metadata)
   - [Taxonomy](#taxonomy)
 - [Naming your files](#naming-your-files)
 - [Includes](#includes)
-- [Contribution](#contribution)
+- [Contributing](#contributing)
 
 Getting started
 ---------------
