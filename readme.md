@@ -231,16 +231,22 @@ Variable           | Description
 `permalink`        | URL for tag page with domain, ie. `http://mysite.com/blog/tags/desgin`
 `posts`            | Array of [posts](#posts) with this tag.
 
-Count number of tags in the `Tags` set:
+Count number of tags in the default `Tags` set:
 
 ```html
 {{taxonomy.tags | size}}
 ```
 
-Get first tag in the `Tags` set:
+Count number of tags in the `Colors` tag set:
 
 ```html
-{{taxonomy.tags.first}}
+{{taxonomy.colors | size}}
+```
+
+Get first tag in the `Colors` tag set:
+
+```html
+{{taxonomy.colors.first}}
 ```
 
 Loop through the `Tags` set:
@@ -248,6 +254,16 @@ Loop through the `Tags` set:
 ```html
 <ul>
 {% for tag in taxonomy.tags %}
+  <li><a href="{{tag.url}}">{{tag.value}}</a></li>
+{% endfor %}
+</ul>
+```
+
+Loop through the `Colors` set:
+
+```html
+<ul>
+{% for tag in taxonomy.colors %}
   <li><a href="{{tag.url}}">{{tag.value}}</a></li>
 {% endfor %}
 </ul>
