@@ -4,25 +4,11 @@ body{
   line-height: 1.5;
 }
 
-img, video, object{
-  max-width: 100%
-}
+img, video, object{ max-width: 100% }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary {
+article, header, nav, section {
     display: block;
 }
-
 
 /* Layout
 ================================ */
@@ -60,7 +46,6 @@ summary {
 
 }
 
-
 /* Text
 ================================ */
 
@@ -75,9 +60,7 @@ a{
   font-size: 0.85em;
 }
 
-.site-title{
-  font-size: 1.2em;
-}
+.site-title{ font-size: 1.2em; }
 
 .page-menu {
   margin: 0 0 30px;
