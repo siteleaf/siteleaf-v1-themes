@@ -1,0 +1,31 @@
+{% include 'includes/header' %}
+
+<h1 class="content-title">{{title}}</h1>
+
+{% if pages %}
+  <nav class="subpage-menu">
+    {% for subpage in pages %}
+      <a href="{{subpage.url}}">{{subpage.title}}</a>
+    {% endfor %}
+  </nav>
+{% endif %}
+
+{{body}}
+
+{% if type == "post" %}
+  {% include 'includes/post_info' %}
+{% else %}
+  {% for post in posts %}
+    <article class="post-preview">
+      <h2><a href="{{post.url}}">{{post.title}}</a></h2>
+      {{post.body | strip_html | truncatewords: 100}}
+      <p><a href="{{post.url}}">View post</a>
+    </article>
+  {% endfor %}
+{% endif %}
+
+{% if parent %}
+  <p><a href="{{parent.url}}">&larr; Back to {{parent.title}}</a></p>
+{% endif %}
+
+{% include 'includes/footer' %}

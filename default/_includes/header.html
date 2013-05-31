@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset=utf-8 />
+  <title>{{site.title}} | {{title}}</title>
+  <link rel="alternate" type="application/rss+xml" href="{{site.feed_url}}" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+
+  <div class="wrap">
+
+    <header class="primary-header">
+      <h1 class="site-title"><a href="/">{{site.title}}</a></h1>
+
+      <ul class="page-menu">
+      {% for page in site.pages %}
+        <li><a href="{{page.url}}"{% if page.url == url %} class="is-current-page"{% endif %}>{{page.title}}</a></li>
+      {% endfor %}
+      </ul>
+    </header>
+
+    <section class="content">

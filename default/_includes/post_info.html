@@ -1,0 +1,13 @@
+{% comment %}
+  Loop through all tagsets and display each tag.
+{% endcomment %}
+
+{% for tagset in taxonomy %}
+  <li>{{tagset.key}} ({{tagset | size}} tags)
+    <ul>
+    {% for tag in tagset %}
+      <li><a href="{{tag.url}}">{{tag.value}}</a></li>
+    {% endfor %}
+    </ul>
+  </li>
+{% endfor %}
