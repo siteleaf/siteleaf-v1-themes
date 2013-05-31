@@ -60,6 +60,8 @@ Get the title and body for the current page:
 Posts
 -----
 
+Loop through posts on the current page:
+
 ```html
 {% for post in posts %}
 <article>
