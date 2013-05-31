@@ -21,6 +21,14 @@ There are two types of markup in Liquid:
 If you are new to Liquid, a good place to start is [Liquid for Designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers).
 
 
+Filters and Tags
+----------------
+
+Siteleaf supports all [Standard Liquid Filters](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#standard-filters) and [Liquid Tags](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#tags).
+
+In addition, Siteleaf is compatible with [Jekyll Liquid Filters](http://jekyllrb.com/docs/templates/).
+
+
 Variables
 =========
 
@@ -68,6 +76,7 @@ Variable           | Description
 `permalink`        | Full URL to object with domain (ie. `http://mysite.com/blog/my-post`).
 `pages`            | A nested array of child-pages, available on `page` type only.
 `posts`            | Array of posts, available in `page`, `archive`, and `taxonomy` types.
+`parent`           | Parent page object (if exists).
 `date`             | Date of publish, available in `page` and `post` types.
 `author.name`      | Full name of author, available in `page` and `post` types.
 `author.firstname` | First name of author, available in `page` and `post` types.
@@ -81,6 +90,14 @@ Get the title and body for the current page:
 <h2>{{title}}</h2>
 
 {{body}}
+```
+
+Check for parent page:
+
+```html
+{% if parent %}
+  <a href="{{parent.url}}">&larr; Back to {{parent.title}}</a>
+{% endif %}
 ```
 
 
@@ -100,8 +117,9 @@ Loop through the first 20 posts on the current page:
 ```html
 {% for post in posts limit:20 %}
 <article>
-  <h3><a href="{{post.url}}">{{post.title}}</a></h3>
+  <header><a href="{{post.url}}">{{post.title}}</a></header>
   {{post.body}}
+  <footer>Posted on {{post.date | date: "%b %d, %Y"}} by {{post.author.name}}</footer>
 </article>
 {% endfor %}
 ```
