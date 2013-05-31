@@ -4,6 +4,7 @@ Siteleaf Theme Documentation
 - [Getting started](#getting-started)
 - [Filters and Tags](#filters-and-tags)
 - [Variables](#variables)
+  - [Site](#site)
   - [Content (page, post, archive, taxonomy)](#content)
   - [Posts](#posts)
   - [Subpages](#subpags)
