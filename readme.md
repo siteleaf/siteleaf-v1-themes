@@ -8,10 +8,11 @@ Siteleaf Theme Documentation
   - [Content (page, post, archive, taxonomy)](#content)
   - [Posts](#posts)
   - [Subpages](#subpages)
+  - [Assets](#assets)
   - [Metadata](#metadata)
   - [Taxonomy](#taxonomy)
 - [Naming your files](#naming-your-files)
-- [Includes](#includes)
+  - [Includes](#includes)
 - [Contributing](#contributing)
 
 Getting started
@@ -87,6 +88,7 @@ Variable           | Description
 `permalink`        | Full URL to object with domain (ie. `http://mysite.com/blog/my-post`).
 `body`             | Body in HTML (rendered from Markdown), available in `page` and `post` types.
 `body_raw`         | Body in raw Markdown, available in `page` and `post` types.
+`assets`           | Array of [assets](#assets), available on `page` and `post` types.
 `meta`             | Array of [metadata](#metadata), available on `page` and `post` types.
 `taxonomy`         | Array of [taxonomy](#taxonomy), available on `post` type only.
 `tags`             | Array of [tags](#tags), available on `tagset` type only.
@@ -160,6 +162,42 @@ Loop through the subpages:
   <h3><a href="{{page.url}}">{{page.title}}</a></h3>
   {{page.body}}
 </article>
+{% endfor %}
+```
+
+
+Assets
+------
+
+Variable           | Description
+--------           | -----------
+`type`             | Can be `image`, `audio`, `video`, or `other`.
+`filename`         | Name of file (ie. `photo.jpg`).
+`url`              | URL to object without domain (ie. `/assets/photo.jpg`).
+`permalink`        | Full URL to object with domain (ie. `http://mysite.com/assets/photo.jpg`).
+`content_type`     | MIME type of asset (ie. `image/jpeg`).
+`filesize`         | Size of file in bytes (ie. `1024`).
+`date`             | Date asset was created.
+
+Count the number of assets:
+
+```html
+{{assets | size}}
+```
+
+Loop through assets:
+
+```html
+{% for asset in assets %}
+  {% if asset.type == 'image' %}
+  <img src="{{asset.url}}">
+  {% if asset.type == 'audio' %}
+  <audio><source src="{{asset.url}}" type="{{asset.content_type}}"></audio>
+  {% if asset.type == 'video' %}
+  <video><source src="{{asset.url}}" type="{{asset.content_type}}"></video>
+  {% if asset.type == 'other' %}
+  <a href="{{asset.url}}">Download {{asset.filename}}</a></li>
+  {% endif %}
 {% endfor %}
 ```
 
