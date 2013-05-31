@@ -158,6 +158,20 @@ Includes (or partials) can be added by using the `include` tag:
 
 ```html
 {% include 'header' %}
+
+{% include 'includes/menu' %}
 ```
 
-Include files should be prepended with an underscore. In the above example, Siteleaf will load `_header.html`.
+Include files should be prepended with an underscore. In the above examples, Siteleaf will look for `_header.html` and `_includes/menu.html` respectively.
+
+
+Contributing
+============
+
+Help us improve this documentation:
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
