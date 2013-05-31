@@ -29,7 +29,15 @@ Site
 
 `site` contains global variables available to all pages.
 
-Get the title of your website:
+Variable           | Description
+--------           | -----------
+`site.title`       | The title of your website.
+`site.domain`      | Your website’s domain name (ie. `barlawrence.com`).
+`site.pages`       | A nested array of pages.
+`site.posts`       | Array of all posts in all pages.
+`site.date`        | Date of most recent publish.
+
+For example, use the following Liquid to get the title of your website:
 
 ```html
 {{site.title}}
@@ -50,20 +58,47 @@ Loop through `site.pages` to build a menu:
 Content
 -------
 
+Variable           | Description
+--------           | -----------
+`type`             | Can be `page`, `post`, `archive`, or `taxonomy`.
+`title`            | Title of content.
+`body`             | Body in HTML (rendered from Markdown), available in `page` and `post` types.
+`body_raw`         | Body in raw Markdown, available in `page` and `post` types.
+`url`              | URL to object without domain (ie. `/blog/my-post`).
+`permalink`        | Full URL to object with domain (ie. `http://mysite.com/blog/my-post`).
+`pages`            | A nested array of child-pages, available on `page` type only.
+`posts`            | Array of posts, available in `page`, `archive`, and `taxonomy` types.
+`date`             | Date of publish, available in `page` and `post` types.
+`author.name`      | Full name of author, available in `page` and `post` types.
+`author.firstname` | First name of author, available in `page` and `post` types.
+`author.lastname`  | Last name of author, available in `page` and `post` types.
+`author.email`     | Author’s email, available in `page` and `post` types.
+`author.avatar`    | Author’s Gravatar URL, available in `page` and `post` types.
+
 Get the title and body for the current page:
 
 ```html
 <h2>{{title}}</h2>
+
 {{body}}
 ```
+
 
 Posts
 -----
 
-Loop through posts on the current page:
+See [Content](#content) for available variables.
+
+Count the number of posts:
 
 ```html
-{% for post in posts %}
+This page has {{posts | size}} posts.
+```
+
+Loop through the first 20 posts on the current page:
+
+```html
+{% for post in posts limit:20 %}
 <article>
   <h3><a href="{{post.url}}">{{post.title}}</a></h3>
   {{post.body}}
@@ -71,8 +106,43 @@ Loop through posts on the current page:
 {% endfor %}
 ```
 
+
+Subpages
+-----
+
+See [Content](#content) for available variables.
+
+Count the number of subpages:
+
+```html
+This page has {{page | size}} subpages.
+```
+
+Loop through the subpages:
+
+```html
+{% for page in pages %}
+<article>
+  <h3><a href="{{page.url}}">{{page.title}}</a></h3>
+  {{page.body}}
+</article>
+{% endfor %}
+```
+
+
 Metadata
 --------
+
+Variable           | Description
+--------           | -----------
+`meta`             | Array of all metadata key/value pairs.
+`meta.KEY`         | Get metadata by key, ie. `Color`.
+
+Count number of metadata fields:
+
+```html
+{{meta | size}}
+```
 
 Get metadata for key `Color`:
 
@@ -98,6 +168,17 @@ Loop through metadata:
 
 Taxonomy
 --------
+
+Variable           | Description
+--------           | -----------
+`taxonomy`         | Array of all tag sets.
+`taxonomy.KEY`     | Array of tags in set, ie. `Tags`.
+
+Count number of tags in `Tags`:
+
+```html
+{{taxonomy.tags | size}}
+```
 
 Get first tag in `Tags`:
 
@@ -141,14 +222,13 @@ Your base template should always be called `default.html`.
 
 Additional templates can be applied to other pages by following the same URL structure:
 
-```
-URL                Template
----                --------
-/                  index.html
-/blog              blog.html (or blog/index.html)
-/blog/new-post     blog/default.html
-/blog/archive      blog/archive.html (or blog/archive/index.html)
-```
+URL               | Template
+---               | --------
+*                 | default.html (used by default
+/                 | index.html
+/blog             | blog.html (or blog/index.html)
+/blog/new-post    | blog/default.html
+/blog/archive     | blog/archive.html (or blog/archive/index.html)
 
 
 Includes
