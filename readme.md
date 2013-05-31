@@ -12,6 +12,7 @@ Siteleaf Theme Documentation
   - [Taxonomy](#taxonomy)
 - [Naming your files](#naming-your-files)
 - [Includes](#includes)
+- [Contribution](#contribution)
 
 Getting started
 ---------------
