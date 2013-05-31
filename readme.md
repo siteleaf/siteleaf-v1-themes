@@ -70,10 +70,10 @@ Variable           | Description
 --------           | -----------
 `type`             | Can be `page`, `post`, `archive`, or `taxonomy`.
 `title`            | Title of content.
-`body`             | Body in HTML (rendered from Markdown), available in `page` and `post` types.
-`body_raw`         | Body in raw Markdown, available in `page` and `post` types.
 `url`              | URL to object without domain (ie. `/blog/my-post`).
 `permalink`        | Full URL to object with domain (ie. `http://mysite.com/blog/my-post`).
+`body`             | Body in HTML (rendered from Markdown), available in `page` and `post` types.
+`body_raw`         | Body in raw Markdown, available in `page` and `post` types.
 `pages`            | A nested array of child-pages, available on `page` type only.
 `posts`            | Array of posts, available in `page`, `archive`, and `taxonomy` types.
 `parent`           | Parent page object (if exists).
@@ -133,7 +133,7 @@ See [Content](#content) for available variables.
 Count the number of subpages:
 
 ```html
-This page has {{page | size}} subpages.
+This page has {{pages | size}} subpages.
 ```
 
 Loop through the subpages:
