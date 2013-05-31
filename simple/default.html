@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8 />
+	<title>{{site.title}} | {{title}}</title>
+	<link rel="alternate" type="application/rss+xml" href="{{site.feed_url}}" />
+</head>
+<body>
+
+  <header>
+	  <h1>{{site.title}}</h1>
+	  <nav>
+  	  <ul>
+  	  {% for page in site.pages %}
+  	    <li><a href="{{page.url}}"{% if page.url == url %} class="selected"{% endif %}>{{page.title}}</a></li>
+  	  {% endfor %}
+  	  </ul>
+	  </nav>
+  </header>
+	
+	{% if body %}
+	<article>
+    <h2>{{title}}</h2>
+    {{body}}
+	</article>
+	{% endif %}
+  
+	{% for post in posts %}
+  <article>
+    <h3><a href="{{post.url}}">{{post.title}}</a></h3>
+    {{post.body}}
+  </article>
+  {% endfor %}
+  
+  {% if parent %}
+    <p><a href="{{parent.url}}">&larr; Back to {{parent.title}}</a></p>
+  {% endif %}
+
+</body>
+</html>
