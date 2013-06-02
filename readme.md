@@ -311,10 +311,10 @@ Loop through all tag sets:
 
 ```html
 <ul>
-{% for tagset in taxonomy %}
-  <li>{{tagset.key}} ({{tagset | size}} tags)
+{% for set in taxonomy %}
+  <li>{{set.key}} ({{set | size}} tags)
     <ul>
-    {% for tag in tagset %}
+    {% for tag in set %}
       <li><a href="{{tag.url}}">{{tag.value}}</a></li>
     {% endfor %}
     </ul>
