@@ -10,7 +10,7 @@ Siteleaf Theme Documentation
   - [Subpages](#subpages)
   - [Assets](#assets)
   - [Metadata](#metadata)
-  - [Taxonomy](#taxonomy)
+  - [Taxonomy and Tags](#taxonomy-and-tags)
 - [Naming your files](#naming-your-files)
   - [Includes](#includes)
 - [Contributing](#contributing)
@@ -82,7 +82,7 @@ Content
 
 Variable           | Description
 --------           | -----------
-`type`             | Can be `page`, `post`, `archive`, `tagset`, or `tag`.
+`type`             | Can be `page`, `post`, `archive`, `taxonomy`, or `tag`.
 `title`            | Title of content.
 `url`              | URL to object without domain (ie. `/blog/my-post`).
 `permalink`        | Full URL to object with domain (ie. `http://mysite.com/blog/my-post`).
@@ -91,7 +91,7 @@ Variable           | Description
 `assets`           | Array of [assets](#assets), available on `page` and `post` types.
 `meta`             | Array of [metadata](#metadata), available on `page` and `post` types.
 `taxonomy`         | Array of [taxonomy](#taxonomy), available on `post` type only.
-`tags`             | Array of [tags](#tags), available on `tagset` type only.
+`tags`             | Array of [tags](#tags), available on `taxonomy` type only.
 `pages`            | Array of child-pages, available on `page` type only.
 `posts`            | Array of posts, available in `page`, `archive`, and `tag` types.
 `parent`           | Parent page object (if exists).
@@ -238,25 +238,25 @@ Loop through metadata:
 </dl>
 ```
 
-Taxonomy, Tag Sets, & Tags
---------------------------
+Taxonomy and Tags
+-----------------
+
+Siteleaf allows you to use multiple tag sets called Taxonomy. By default, each site will have one set called `Tags`.
+
+Variable           | Description
+--------           | -----------
+`taxonomy`         | Array of all taxonomy sets.
+`taxonomy.KEY`     | Get tags by set name, ie. `Tags`.
 
 ### Taxonomy:
 
 Variable           | Description
 --------           | -----------
-`taxonomy`         | Array of all [tag sets](#tag-sets).
-`taxonomy.KEY`     | Get single tag set by name, ie. `Tags`.
-
-### Tag sets:
-
-Variable           | Description
---------           | -----------
-`key`              | Name of tag set, ie. `Tags`.
-`slug`             | URI slug for tag set, ie. `tags`.
-`url`              | URL for tag set page without domain, ie. `/blog/tags`
-`permalink`        | URL for tag set page with domain, ie. `http://mysite.com/blog/tags`
-`tags`             | Array of [tags](#tags) in tag set.
+`key`              | Name of taxonomy set, ie. `Tags`.
+`slug`             | URI slug for set, ie. `tags`.
+`url`              | URL for set page without domain, ie. `/blog/tags`
+`permalink`        | URL for set page with domain, ie. `http://mysite.com/blog/tags`
+`tags`             | Array of [tags](#tags) in set.
 `tags.KEY`         | Get single tag by name, ie. `Design`.
 
 ### Tags:
@@ -272,26 +272,26 @@ Variable           | Description
 Count number of tags in the default `Tags` set:
 
 ```html
-{{taxonomy.tags | size}}
+{{taxonomy['tags'] | size}}
 ```
 
 Count number of tags in the `Colors` tag set:
 
 ```html
-{{taxonomy.colors | size}}
+{{taxonomy['colors'] | size}}
 ```
 
 Get first tag in the `Colors` tag set:
 
 ```html
-{{taxonomy.colors.first}}
+{{taxonomy['colors'].first}}
 ```
 
 Loop through the `Tags` set:
 
 ```html
 <ul>
-{% for tag in taxonomy.tags %}
+{% for tag in taxonomy['tags'] %}
   <li><a href="{{tag.url}}">{{tag.value}}</a></li>
 {% endfor %}
 </ul>
@@ -301,7 +301,7 @@ Loop through the `Colors` set:
 
 ```html
 <ul>
-{% for tag in taxonomy.colors %}
+{% for tag in taxonomy['colors'] %}
   <li><a href="{{tag.url}}">{{tag.value}}</a></li>
 {% endfor %}
 </ul>
