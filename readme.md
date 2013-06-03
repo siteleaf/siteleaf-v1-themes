@@ -191,11 +191,11 @@ Loop through assets:
 {% for asset in assets %}
   {% if asset.type == 'image' %}
   <img src="{{asset.url}}">
-  {% if asset.type == 'audio' %}
+  {% elsif asset.type == 'audio' %}
   <audio><source src="{{asset.url}}" type="{{asset.content_type}}"></audio>
-  {% if asset.type == 'video' %}
+  {% elsif asset.type == 'video' %}
   <video><source src="{{asset.url}}" type="{{asset.content_type}}"></video>
-  {% if asset.type == 'other' %}
+  {% elsif asset.type == 'other' %}
   <a href="{{asset.url}}">Download {{asset.filename}}</a></li>
   {% endif %}
 {% endfor %}
