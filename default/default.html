@@ -36,9 +36,9 @@
 
       {{body}}
 
-      {% if type == "post" %}
-        {% comment %} Show tagsets if this is a post {% endcomment %}
+      {% if type == 'post' %}
 
+        {% comment %} Show tagsets if this is a post {% endcomment %}
         {% for tagset in taxonomy %}
           <strong>{{tagset.key}} ({{tagset | size}} tags)</strong>
           <ul>
@@ -48,7 +48,17 @@
           </ul>
         {% endfor %}
 
+      {% elsif type == 'taxonomy' %}
+        
+        {% comment %} Show tags associated with a taxonomy {% endcomment %}
+        <ul>
+          {% for tag in tags %}
+            <li><a href="{{tag.url}}">{{tag.value}}</a></li>
+          {% endfor %}
+        </ul>
+
       {% else %}
+        
         {% comment %} Loop through any posts and show an excerpt {% endcomment %}
         {% for post in posts %}
           <article class="post-preview">
