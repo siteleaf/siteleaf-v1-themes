@@ -15,6 +15,7 @@ Siteleaf Theme Documentation
   - [Includes](#includes)
 - [Sample themes](#sample-themes)
 - [Testing sites locally](#testing-sites-locally)
+- [Other resources](#other-resources)
 - [Contributing](#contributing)
 
 
@@ -406,6 +407,13 @@ Testing sites locally
 =============
 
 To test and build themes locally, [install the Siteleaf Gem](https://github.com/siteleaf/siteleaf-gem)
+
+Other resources
+=============
+
+- [Liquid for Designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
+- [Liquid syntax highlighting for Sublime Text 2](https://bitbucket.org/granteagon/shopify-liquid/src/ccb7a8040615/README.rst)
+- [Liquid Wiki](http://wiki.shopify.com/Liquid)
 
 
 Contributing
