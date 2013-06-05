@@ -13,14 +13,37 @@ Siteleaf Theme Documentation
   - [Taxonomy and Tags](#taxonomy-and-tags)
 - [Naming your files](#naming-your-files)
   - [Includes](#includes)
+- [Sample themes](#sample-themes)
 - [Contributing](#contributing)
+
 
 Getting started
 ---------------
 
 Siteleaf uses the popular [Liquid](https://github.com/Shopify/liquid) syntax for themes. If you can write HTML, you’ll have no problem using Liquid.
 
-There are two types of markup in Liquid:
+Here’s how a simple template might look:
+
+```html
+<html>
+<head>
+	<title>{{site.title}} | {{title}}</title>
+</head>
+<body>
+	
+  <h1>{{title}}</h1>
+  
+  <article>{{body}}</article>
+  
+  {% if parent %}
+  <p><a href="{{parent.url}}">&larr; Go back</a></p>
+  {% endif %}
+
+</body>
+</html>
+```
+
+As you can see, there are two types of markup in Liquid:
 
 1) Output markup (which may resolve to text) is surrounded by
 ```html
@@ -32,7 +55,7 @@ There are two types of markup in Liquid:
 {% matched pairs of curly brackets and percent signs %}
 ```
 
-If you are new to Liquid, a good place to start is [Liquid for Designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers).
+If you are new to the Liquid syntax, a good place to start is [Liquid for Designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers).
 
 
 Filters and Tags
@@ -55,8 +78,11 @@ Variable           | Description
 --------           | -----------
 `site.title`       | The title of your website.
 `site.domain`      | Your website’s domain name (ie. `barlawrence.com`).
+`site.permalink`   | Your website’s full address (ie. `http://barlawrence.com`).
 `site.pages`       | A nested array of pages.
 `site.posts`       | Array of all posts in all pages.
+`site.feed_url`    | URL to your website’s [RSS](http://en.wikipedia.org/wiki/RSS) feed (ie. `http://barlawrence.com/feed.xml`).
+`site.sitemap_url` | URL to your website’s [Sitemap](http://www.sitemaps.org) file (ie. `http://barlawrence.com/sitemap.xml`).
 `site.date`        | Date of most recent publish.
 
 For example, use the following Liquid to get the title of your website:
@@ -208,7 +234,14 @@ Metadata
 Variable           | Description
 --------           | -----------
 `meta`             | Array of all metadata key/value pairs.
-`meta.KEY`         | Get single metadata by key, ie. `Color`.
+`meta.KEY`         | Get single metadata by key (ie. `Color`).
+
+Available for each metadata:
+
+Variable           | Description
+--------           | -----------
+`key`              | Name of metadata key (ie. `Color`).
+`value`            | Value of metadata (ie. `Red`).
 
 Count number of metadata fields:
 
