@@ -389,6 +389,18 @@ Includes (or partials) can be added by using the `include` tag:
 Include files should be prepended with an underscore. In the above examples, Siteleaf will look for `_header.html` and `_includes/menu.html` respectively.
 
 
+Sample themes
+=============
+
+This repo contains the default Siteleaf theme as well as a basic barebones template to help you get started.
+
+More sample themes can be found in the wiki:
+
+https://github.com/siteleaf/siteleaf-themes/wiki/Siteleaf-themes-on-Github
+
+If you have a theme you'd like to share with the community, feel free to add it.
+
+
 Contributing
 ============
 
