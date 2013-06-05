@@ -14,6 +14,7 @@ Siteleaf Theme Documentation
 - [Naming your files](#naming-your-files)
   - [Includes](#includes)
 - [Sample themes](#sample-themes)
+- [Testing sites locally](#testing-sites-locally)
 - [Contributing](#contributing)
 
 
@@ -399,6 +400,12 @@ More sample themes can be found in the wiki:
 https://github.com/siteleaf/siteleaf-themes/wiki/Siteleaf-themes-on-Github
 
 If you have a theme you'd like to share with the community, feel free to add it.
+
+
+Testing sites locally
+=============
+
+To test and build themes locally, [install the Siteleaf Gem](https://github.com/siteleaf/siteleaf-gem)
 
 
 Contributing
