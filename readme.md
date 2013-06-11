@@ -63,9 +63,17 @@ If you are new to the Liquid syntax, a good place to start is [Liquid for Design
 Filters and Tags
 ----------------
 
-Siteleaf supports all [Standard Liquid Filters](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#standard-filters) and [Liquid Tags](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#tags).
+Siteleaf supports all [Standard Liquid Filters](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#standard-filters) and [Liquid Tags](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#tags). 
 
-In addition, Siteleaf is compatible with [Jekyll Liquid Filters](http://jekyllrb.com/docs/templates/).
+Siteleaf is also compatible with [Jekyll Liquid Filters](http://jekyllrb.com/docs/templates/).
+
+In addition, Siteleaf adds the following custom filters:
+
+Filter             | Description                                                    | Example
+--------           | -----------                                                    | -------
+`fallback`         | Provide a default value if variable is blank.                  | `{{title | fallback:"Untitled"}}`
+`markdown`         | Converts [Markdown](http://daringfireball.net/projects/markdown/) to HTML, use `true` to apply Smartypants.    | `{{title | markdown:true}}`
+`smartypants`      | Applies [Smartypants](http://daringfireball.net/projects/smartypants/) (smart quotes, em/en dashes, etc).         | `{{title | smartypants}}`
 
 
 Variables
@@ -116,12 +124,17 @@ Variable           | Description
 `permalink`        | Full URL to object with domain (ie. `http://mysite.com/blog/my-post`).
 `body`             | Body in HTML (rendered from Markdown), available in `page` and `post` types.
 `body_raw`         | Body in raw Markdown, available in `page` and `post` types.
+`excerpt`          | Shortened version of the body (use 2 empty lines to break), available in `page` and `post` types.
+`excerpt_raw`      | Excerpt in raw Markdown, available in `page` and `post` types.
 `assets`           | Array of [assets](#assets), available on `page` and `post` types.
 `meta`             | Array of [metadata](#metadata), available on `page` and `post` types.
 `taxonomy`         | Array of [taxonomy](#taxonomy), available on `post` type only.
 `tags`             | Array of [tags](#tags), available on `taxonomy` type only.
 `pages`            | Array of child-pages, available on `page` type only.
 `posts`            | Array of posts, available in `page`, `archive`, and `tag` types.
+`previous`         | The previous `page` or `post`, available in `page` or `post` types.
+`next`             | The next `page` or `post`, available in `page` or `post` types.
+`current`          | Alias of the curent `page` or `post`, available in `page` or `post` types.
 `parent`           | Parent page object (if exists).
 `date`             | Date of publish, available in `page` and `post` types.
 `author.name`      | Full name of author, available in `page` and `post` types.
