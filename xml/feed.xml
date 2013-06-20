@@ -4,7 +4,7 @@
     <title>{{site.title | xml_escape}}</title>
     <link>{{site.permalink}}</link>
     <pubDate>{{site.date | date_to_rfc822}}</pubDate>
-    {% for post in site.posts %}
+    {% for post in site.posts limit:20 %}
     <item>
       <title>{{post.title | xml_escape}}</title>
       <link>{{post.permalink}}</link>
