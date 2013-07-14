@@ -313,8 +313,8 @@ Variable           | Description
 --------           | -----------
 `value`            | Name of tag, ie. `Design`.
 `slug`             | URI slug for tag set, ie. `design`.
-`url`              | URL for tag page without domain, ie. `/blog/tags/desgin`
-`permalink`        | URL for tag page with domain, ie. `http://mysite.com/blog/tags/desgin`
+`url`              | URL for tag page without domain, ie. `/blog/tags/design`
+`permalink`        | URL for tag page with domain, ie. `http://mysite.com/blog/tags/design`
 `posts`            | Array of [posts](#posts) with this tag.
 
 Count number of tags in the default `Tags` set:
