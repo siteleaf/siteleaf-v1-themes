@@ -15,6 +15,7 @@ Siteleaf Theme Documentation
   - [Includes](#includes)
 - [Sample themes](#sample-themes)
 - [Testing sites locally](#testing-sites-locally)
+- [Further reading](#further-reading)
 - [Other resources](#other-resources)
 - [Contributing](#contributing)
 
@@ -420,6 +421,15 @@ Testing sites locally
 =============
 
 To test and build themes locally, [install the Siteleaf Gem](https://github.com/siteleaf/siteleaf-gem)
+
+Further reading
+=============
+- [Siteleaf overview](http://www.siteleaf.com/blog/overview/) - An overview of the top Siteleaf features
+- [Developing sites and themes](http://www.siteleaf.com/blog/developing-sites/) - Video walkthrough of creating Siteleaf themes and developing locally
+- [Metadata in Siteleaf](http://destroytoday.com/blog/metadata-in-siteleaf/) 
+- [Taxonomy in Siteleaf](http://destroytoday.com/blog/taxonomy-in-siteleaf/)
+- [Markdown in Siteleaf](http://destroytoday.com/blog/markdown-in-siteleaf/)
+
 
 Other resources
 =============
