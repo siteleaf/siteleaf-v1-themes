@@ -138,7 +138,7 @@ Variable           | Description
 `current`          | Alias of the curent `page` or `post`, available in `page` or `post` types.
 `parent`           | Parent page object (if exists).
 `date`             | Date of publish, available in `page` and `post` types.
-`author.name`      | Full name of author, available in `page` and `post` types.
+`author.fullname`  | Full name of author, available in `page` and `post` types.
 `author.firstname` | First name of author, available in `page` and `post` types.
 `author.lastname`  | Last name of author, available in `page` and `post` types.
 `author.email`     | Author’s email, available in `page` and `post` types.
@@ -179,7 +179,7 @@ Loop through the first 20 posts on the current page:
 <article>
   <header><a href="{{post.url}}">{{post.title}}</a></header>
   {{post.body}}
-  <footer>Posted on {{post.date | date: "%b %d, %Y"}} by {{post.author.name}}</footer>
+  <footer>Posted on {{post.date | date: "%b %d, %Y"}} by {{post.author.fullname}}</footer>
 </article>
 {% endfor %}
 ```
