@@ -137,6 +137,7 @@ Variable           | Description
 `next`             | The next `page` or `post`, available in `page` or `post` types.
 `current`          | Alias of the curent `page` or `post`, available in `page` or `post` types.
 `parent`           | Parent page object (if exists).
+`archive_url`      | URL to archive page, available on `page` type only.
 `date`             | Date of publish, available in `page` and `post` types.
 `author.fullname`  | Full name of author, available in `page` and `post` types.
 `author.firstname` | First name of author, available in `page` and `post` types.
