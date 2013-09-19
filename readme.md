@@ -73,8 +73,9 @@ In addition, Siteleaf adds the following custom filters:
 Filter             | Description                                                    | Example
 --------           | -----------                                                    | -------
 `fallback`         | Provide a default value if variable is blank.                  | {{title &#124; fallback:"Untitled"}}
-`markdown`         | Converts [Markdown](http://daringfireball.net/projects/markdown/) to HTML, use `true` to apply Smartypants.    | {{title &#124; markdown:true}}
-`smartypants`      | Applies [Smartypants](http://daringfireball.net/projects/smartypants/) (smart quotes, em/en dashes, etc).         | {{title &#124; smartypants}}
+`json`		   | Formats content as [JSON (JavaScript Object Notation)](http://en.wikipedia.org/wiki/JSON)  | {{site.posts &#124; json}}
+`markdown`         | Converts [Markdown](http://daringfireball.net/projects/markdown/) to HTML, use `true` to apply Smartypants.  | {{title &#124; markdown:true}}
+`smartypants`      | Applies [Smartypants](http://daringfireball.net/projects/smartypants/) (smart quotes, em/en dashes, etc).  | {{title &#124; smartypants}}
 
 
 Variables
