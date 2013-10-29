@@ -428,9 +428,13 @@ Further reading
 =============
 - [Siteleaf overview](http://www.siteleaf.com/blog/overview/) - An overview of the top Siteleaf features
 - [Developing sites and themes](http://www.siteleaf.com/blog/developing-sites/) - Video walkthrough of creating Siteleaf themes and developing locally
+- [An Introduction to Siteleaf](http://destroytoday.com/blog/an-introduction-to-siteleaf)
+- [Hello World, I'm Siteleaf](http://destroytoday.com/blog/hello-world-im-siteleaf)
 - [Metadata in Siteleaf](http://destroytoday.com/blog/metadata-in-siteleaf/) 
 - [Taxonomy in Siteleaf](http://destroytoday.com/blog/taxonomy-in-siteleaf/)
 - [Markdown in Siteleaf](http://destroytoday.com/blog/markdown-in-siteleaf/)
+- [Porting a theme to Siteleaf](http://destroytoday.com/blog/porting-a-theme-to-siteleaf)
+- [Layouts in Siteleaf](http://destroytoday.com/blog/layouts-in-siteleaf)
 
 
 Other resources
