@@ -76,6 +76,7 @@ Filter             | Description                                                
 `json`		   | Formats content as [JSON (JavaScript Object Notation)](http://en.wikipedia.org/wiki/JSON)  | {{site.posts &#124; json}}
 `markdown`         | Converts [Markdown](http://daringfireball.net/projects/markdown/) to HTML, use `true` to apply Smartypants.  | {{title &#124; markdown:true}}
 `smartypants`      | Applies [Smartypants](http://daringfireball.net/projects/smartypants/) (smart quotes, em/en dashes, etc).  | {{title &#124; smartypants}}
+`slug`		   | Converts a string to its URL-friendly, slug form.			    | {{meta.custom_field &#124; slug}}
 
 
 Variables
