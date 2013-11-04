@@ -290,6 +290,14 @@ Loop through metadata:
 </dl>
 ```
 
+Conditional for specific metadata value:
+
+```html
+{% if meta.color.value == 'Red' %}
+  <p>This color is red!</p>
+{% endif %}
+```
+
 Taxonomy and Tags
 -----------------
 
