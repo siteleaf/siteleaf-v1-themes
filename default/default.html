@@ -49,7 +49,7 @@
         {% endfor %}
 
       {% elsif type == 'taxonomy' %}
-        
+
         {% comment %} Show tags associated with a taxonomy {% endcomment %}
         <ul>
           {% for tag in tags %}
@@ -58,7 +58,7 @@
         </ul>
 
       {% else %}
-        
+
         {% comment %} Loop through any posts and show an excerpt {% endcomment %}
         {% for post in posts %}
           <article class="post-preview">

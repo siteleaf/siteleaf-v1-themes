@@ -33,11 +33,11 @@ Here’s how a simple template might look:
 	<title>{{site.title}} | {{title}}</title>
 </head>
 <body>
-	
+
   <h1>{{title}}</h1>
-  
+
   <article>{{body}}</article>
-  
+
   {% if parent %}
   <p><a href="{{parent.url}}">&larr; Go back</a></p>
   {% endif %}
@@ -64,7 +64,7 @@ If you are new to the Liquid syntax, a good place to start is [Liquid for Design
 Filters and Tags
 ----------------
 
-Siteleaf supports all [Standard Liquid Filters](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#standard-filters) and [Liquid Tags](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#tags). 
+Siteleaf supports all [Standard Liquid Filters](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#standard-filters) and [Liquid Tags](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#tags).
 
 Siteleaf is also compatible with [Jekyll Liquid Filters](http://jekyllrb.com/docs/templates/).
 
@@ -376,9 +376,9 @@ Loop through all tag sets:
 Naming your files
 =================
 
-Siteleaf themes may contain one or more templates. 
+Siteleaf themes may contain one or more templates.
 
-Your base template should always be called `default.html`. 
+Your base template should always be called `default.html`.
 
 Additional templates can be applied to other pages by following the same URL structure as your website:
 
@@ -387,7 +387,8 @@ URL               | Template
 *                 | default.html (required, used by default)
 /                 | index.html
 /blog             | blog.html (or blog/index.html)
-/blog/new-post    | blog/default.html
+/blog/new-post    | blog/default.html (default template for 'blog' posts)
+/blog/custom-post | blog/custom-post.html (template only applied to this page)
 /blog/archive     | blog/archive.html (or blog/archive/index.html)
 
 
@@ -426,7 +427,7 @@ Further reading
 =============
 - [Siteleaf overview](http://www.siteleaf.com/blog/overview/) - An overview of the top Siteleaf features
 - [Developing sites and themes](http://www.siteleaf.com/blog/developing-sites/) - Video walkthrough of creating Siteleaf themes and developing locally
-- [Metadata in Siteleaf](http://destroytoday.com/blog/metadata-in-siteleaf/) 
+- [Metadata in Siteleaf](http://destroytoday.com/blog/metadata-in-siteleaf/)
 - [Taxonomy in Siteleaf](http://destroytoday.com/blog/taxonomy-in-siteleaf/)
 - [Markdown in Siteleaf](http://destroytoday.com/blog/markdown-in-siteleaf/)
 
