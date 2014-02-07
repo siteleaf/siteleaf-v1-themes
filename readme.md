@@ -73,8 +73,10 @@ In addition, Siteleaf adds the following custom filters:
 Filter             | Description                                                    | Example
 --------           | -----------                                                    | -------
 `fallback`         | Provide a default value if variable is blank.                  | {{title &#124; fallback:"Untitled"}}
-`markdown`         | Converts [Markdown](http://daringfireball.net/projects/markdown/) to HTML, use `true` to apply Smartypants.    | {{title &#124; markdown:true}}
-`smartypants`      | Applies [Smartypants](http://daringfireball.net/projects/smartypants/) (smart quotes, em/en dashes, etc).         | {{title &#124; smartypants}}
+`json`		   | Formats content as [JSON (JavaScript Object Notation)](http://en.wikipedia.org/wiki/JSON)  | {{site.posts &#124; json}}
+`markdown`         | Converts [Markdown](http://daringfireball.net/projects/markdown/) to HTML, use `true` to apply Smartypants.  | {{title &#124; markdown:true}}
+`smartypants`      | Applies [Smartypants](http://daringfireball.net/projects/smartypants/) (smart quotes, em/en dashes, etc).  | {{title &#124; smartypants}}
+`slug`		   | Converts a string to its URL-friendly, slug form.			    | {{meta.custom_field &#124; slug}}
 
 
 Variables
@@ -137,8 +139,9 @@ Variable           | Description
 `next`             | The next `page` or `post`, available in `page` or `post` types.
 `current`          | Alias of the curent `page` or `post`, available in `page` or `post` types.
 `parent`           | Parent page object (if exists).
+`archive_url`      | URL to archive page, available on `page` type only.
 `date`             | Date of publish, available in `page` and `post` types.
-`author.name`      | Full name of author, available in `page` and `post` types.
+`author.fullname`  | Full name of author, available in `page` and `post` types.
 `author.firstname` | First name of author, available in `page` and `post` types.
 `author.lastname`  | Last name of author, available in `page` and `post` types.
 `author.email`     | Author’s email, available in `page` and `post` types.
@@ -179,7 +182,7 @@ Loop through the first 20 posts on the current page:
 <article>
   <header><a href="{{post.url}}">{{post.title}}</a></header>
   {{post.body}}
-  <footer>Posted on {{post.date | date: "%b %d, %Y"}} by {{post.author.name}}</footer>
+  <footer>Posted on {{post.date | date: "%b %d, %Y"}} by {{post.author.fullname}}</footer>
 </article>
 {% endfor %}
 ```
@@ -285,6 +288,14 @@ Loop through metadata:
   <dt>{{data.key}}</dt> <dd>{{data.value}}</dd>
 {% endfor %}
 </dl>
+```
+
+Conditional for specific metadata value:
+
+```html
+{% if meta.color.value == 'Red' %}
+  <p>This color is red!</p>
+{% endif %}
 ```
 
 Taxonomy and Tags
@@ -427,9 +438,13 @@ Further reading
 =============
 - [Siteleaf overview](http://www.siteleaf.com/blog/overview/) - An overview of the top Siteleaf features
 - [Developing sites and themes](http://www.siteleaf.com/blog/developing-sites/) - Video walkthrough of creating Siteleaf themes and developing locally
+- [An Introduction to Siteleaf](http://destroytoday.com/blog/an-introduction-to-siteleaf)
+- [Hello World, I'm Siteleaf](http://destroytoday.com/blog/hello-world-im-siteleaf)
 - [Metadata in Siteleaf](http://destroytoday.com/blog/metadata-in-siteleaf/)
 - [Taxonomy in Siteleaf](http://destroytoday.com/blog/taxonomy-in-siteleaf/)
 - [Markdown in Siteleaf](http://destroytoday.com/blog/markdown-in-siteleaf/)
+- [Porting a theme to Siteleaf](http://destroytoday.com/blog/porting-a-theme-to-siteleaf)
+- [Layouts in Siteleaf](http://destroytoday.com/blog/layouts-in-siteleaf)
 
 
 Other resources
