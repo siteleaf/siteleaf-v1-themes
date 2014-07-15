@@ -3,13 +3,13 @@
 {% for page in site.pages %}
   <url>
     <loc>{{page.permalink}}</loc>
-    <lastmod>{{page.updated_at}}</lastmod>
+    <lastmod>{{page.updated_at | date_to_xmlschema}}</lastmod>
     <priority>1.0</priority>
   </url>
   {% for post in page.posts %}
   <url>
     <loc>{{post.permalink}}</loc>
-    <lastmod>{{post.updated_at}}</lastmod>
+    <lastmod>{{post.updated_at | date_to_xmlschema}}</lastmod>
     <priority>0.5</priority>
   </url>
   {% endfor %}
